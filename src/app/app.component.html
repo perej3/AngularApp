@@ -2,19 +2,20 @@
 <html>
 
 <head>
-
+  <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
 </head>
 
 <body>
-  <img src="..\assets\login.jpg" id="background" alt="">
-  <div id="form">
-    
+  <!--<img src="..\assets\login.jpg" id="background" alt=""-->
+  <div id="loginFormDiv">
+    <img src="..\assets\melitalogo.png" id="melitalogo">
     <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+      
       <input type="text" placeholder="Username" formControlName="username">
-      <br>
+      <br><br>
       <span *ngIf="username && username.invalid && username.touched"> Enter a valid username</span>
       <input type="password" placeholder="Password" formControlName="password">
-      <br>
+      <br><br>
       <span *ngIf="password && password.invalid && password.touched"> Enter a valid password</span>
       <button [disabled]=loginForm.invalid>Login</button>
     </form>
