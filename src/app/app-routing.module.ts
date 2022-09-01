@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { AuthService } from './auth.service';
 import { LoginComponent } from './login/login.component';
 import { OffersComponent } from './offers/offers.component';
 
@@ -15,7 +17,8 @@ const routes: Routes = [
   },
   {
     path: 'offers',
-    component: OffersComponent
+    component: OffersComponent,
+    canActivate: [AuthService]
   }
 ];
 

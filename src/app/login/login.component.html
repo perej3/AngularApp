@@ -1,6 +1,6 @@
 <div id="container">
     <div id="loginLogo" class="d-flex justify-content-center">
-        <img src="..\..\assets\melitalogo.png">
+        <img src="../../assets/melitaLogoBlue.png">
     </div>
     <div id="loginFormDiv" class="d-flex justify-content-center align-self-center">
         <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
@@ -11,7 +11,7 @@
             <input class="form-control" type="password" placeholder="Password" formControlName="password">
             <span *ngIf="password && password.invalid && password.touched"> Must contain 8 characters</span>
             <br>
-            <button class="btn form-control" [routerLink]="'../offers'" [disabled]=loginForm.invalid>Login</button>
+            <button class="btn form-control"  [disabled]=loginForm.invalid>Login</button>
         </form>
     </div>
 </div>
