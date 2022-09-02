@@ -8,7 +8,7 @@ import { OffersComponent } from './offers/offers.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/offers',
     pathMatch: 'full'
   },
   {

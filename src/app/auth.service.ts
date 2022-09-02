@@ -8,10 +8,16 @@ import { Observable } from 'rxjs';
 })
 export class AuthService implements CanActivate {
   private _loginUrl = "https://selfcare-service.test.melita.com/interview/backend/api/login";
+  private _offersUrl = "https://selfcare-service.test.melita.com/interview/backend/api/offers";
   constructor(private httpClient: HttpClient, private _router: Router) { }
 
   loginUser(user: Object) {
+
     return this.httpClient.post<any>(this._loginUrl, user)
+  }
+
+  getOffers() {
+    return this.httpClient.get<any>(this._offersUrl)
   }
 
   isloggedIn() {
@@ -26,6 +32,10 @@ export class AuthService implements CanActivate {
       this._router.navigate(['/login'])
       return false;
     }
+  }
+
+  retrieveToken(){
+    return localStorage.getItem('Authorization')
   }
 
 

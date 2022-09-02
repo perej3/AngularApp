@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('Authorization', 'Bearer ' + res.authToken)
       }
     )
+    
   }
   
   get username() {
