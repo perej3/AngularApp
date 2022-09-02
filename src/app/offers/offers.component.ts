@@ -12,7 +12,9 @@ export class OffersComponent implements OnInit {
 
   constructor(private cdr: ChangeDetectorRef, private _auth: AuthService) { }
   requestOffers : any
+  subscriptionOffers: any
   offersList: any
+  subscriptionList: any
   ready : any = false
 
   ngOnInit(): void {
@@ -21,19 +23,33 @@ export class OffersComponent implements OnInit {
         res => {
           this.requestOffers = res
           this.offersList = this.requestOffers.offers
-          // this.offers = Array.of(res);
-          console.log("This should be the response: ", this.offersList[0].id)
+          
+          console.log("Offer response: ", this.offersList[0].id)
           this.ready = true
         }
       )
+    
     console.log('Before display')
 
   }
 
-  display() {
-    console.log(this.requestOffers)
-
+  viewSubscriptions(offerId : string){
+    this._auth.getSubscription(offerId)
+      .subscribe(
+        res => {
+          this.subscriptionOffers = res
+          this.subscriptionList = this.subscriptionOffers.subscriptions
+          
+          console.log("Subscription response ", this.subscriptionList[0].id)
+          this.ready = true
+        }
+      )
+    console.log(offerId)
   }
+  logOut(){
+    console.log('Logged out');
+  }
+
   ngAfterViewInit() {
      this.cdr.detectChanges();
   }

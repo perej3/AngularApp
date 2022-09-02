@@ -20,6 +20,10 @@ export class AuthService implements CanActivate {
     return this.httpClient.get<any>(this._offersUrl)
   }
 
+  getSubscription(offerId : string){
+    return this.httpClient.get<any>(this._offersUrl+'/'+offerId+'/subscriptions')
+  }
+
   isloggedIn() {
     return !!localStorage.getItem('Authorization')
   }
