@@ -5,6 +5,7 @@ import { AuthService } from './auth.service';
 import { LoginComponent } from './login/login.component';
 import { OffersComponent } from './offers/offers.component';
 
+
 const routes: Routes = [
   {
     path: '',

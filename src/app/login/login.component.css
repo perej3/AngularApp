@@ -1,37 +1,6 @@
 body{
-    font-family: 'Muli';
     color:white;
  }
- /* #container{
-     background: url('../../assets/login.jpg') no-repeat center center fixed;
-     background-size: cover;
-     position: fixed; 
-     top: 0; 
-     left: 0;  
-     min-width: 100%;
-     min-height: 100%;
- }
- ::placeholder{
-     font-family: 'Muli';
- } */
- /* #loginFormDiv {
- 
- } */
- /* #loginFormDiv form{
- 
-     border: 3px solid red;
-     position: absolute;
-     top: 50%;
-     left: 50%;
- } */
- /* input{
-     width:100%;
-     height: 40px;
-     border: 1px; 
- } */
  button{
      background-color: #df4297;
  }
- /* .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-     background-color: #8064A2 !important;
- } */

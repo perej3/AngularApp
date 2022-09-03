@@ -1,3 +1,12 @@
-#spinner{
-    width: 5rem; height: 5rem;
+#userDropdown {
+    width: 5rem;
+    height: 5rem;
+}
+
+#titleOffers {
+    background-color: #df4297;
+}
+
+#offers {
+    color: black;
 }

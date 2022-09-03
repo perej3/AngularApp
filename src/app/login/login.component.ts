@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
 
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8)])),
   })
   loginUserCreds = {}
-  constructor(private _auth: AuthService) { }
+  constructor(private _auth: AuthService, private _router: Router) { }
 
   ngOnInit() {
 
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
       res => {
         console.log(res),
         localStorage.setItem('Authorization', 'Bearer ' + res.authToken)
+        this._router.navigate(['offers'])
       }
     )
     

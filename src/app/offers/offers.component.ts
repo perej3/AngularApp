@@ -1,5 +1,6 @@
-import { ChangeDetectorRef, Component, OnInit, ɵɵsetComponentScope } from '@angular/core';
-import { delay, Observable, timer } from 'rxjs';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 import { AuthService } from '../auth.service';
 
@@ -10,12 +11,12 @@ import { AuthService } from '../auth.service';
 })
 export class OffersComponent implements OnInit {
 
-  constructor(private cdr: ChangeDetectorRef, private _auth: AuthService) { }
-  requestOffers : any
+  constructor(private cdr: ChangeDetectorRef, private _auth: AuthService, private _router: Router) { }
+  requestOffers: any
   subscriptionOffers: any
   offersList: any
   subscriptionList: any
-  ready : any = false
+  ready: any = false
 
   ngOnInit(): void {
     this._auth.getOffers()
@@ -23,35 +24,42 @@ export class OffersComponent implements OnInit {
         res => {
           this.requestOffers = res
           this.offersList = this.requestOffers.offers
-          
+
           console.log("Offer response: ", this.offersList[0].id)
           this.ready = true
         }
       )
-    
+
     console.log('Before display')
 
   }
 
-  viewSubscriptions(offerId : string){
+  viewSubscriptions(offerId: string) {
     this._auth.getSubscription(offerId)
       .subscribe(
         res => {
           this.subscriptionOffers = res
           this.subscriptionList = this.subscriptionOffers.subscriptions
-          
+
           console.log("Subscription response ", this.subscriptionList[0].id)
           this.ready = true
+          
         }
       )
     console.log(offerId)
   }
-  logOut(){
-    console.log('Logged out');
+  logOut() {
+    this._auth.logoutUser().subscribe(
+      res => {
+        localStorage.removeItem('Authorization')
+        this._router.navigate(['login'])
+      }
+    )
   }
 
   ngAfterViewInit() {
-     this.cdr.detectChanges();
+    this.cdr.detectChanges();
+    
   }
 
 

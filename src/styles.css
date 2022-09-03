@@ -1,5 +1,8 @@
+body{
+    font-family: 'Muli';
+}
 #container{
-    /* background: url('assets/login.jpg') no-repeat center center fixed; */
+    background: url('assets/login.jpg') no-repeat center center fixed;
     background-size: cover;
     position: fixed; 
     top: 0; 
@@ -7,7 +10,4 @@
     /* Preserve aspet ratio */
     min-width: 100%;
     min-height: 100%;
-}
-::placeholder{
-    font-family: 'Muli';
 }

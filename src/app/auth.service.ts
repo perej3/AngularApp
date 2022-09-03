@@ -9,11 +9,15 @@ import { Observable } from 'rxjs';
 export class AuthService implements CanActivate {
   private _loginUrl = "https://selfcare-service.test.melita.com/interview/backend/api/login";
   private _offersUrl = "https://selfcare-service.test.melita.com/interview/backend/api/offers";
+  private _logoutUrl = "https://selfcare-service.test.melita.com/interview/backend/api/logout";
   constructor(private httpClient: HttpClient, private _router: Router) { }
 
   loginUser(user: Object) {
 
     return this.httpClient.post<any>(this._loginUrl, user)
+  }
+  logoutUser(){
+    return this.httpClient.get<any>(this._logoutUrl)
   }
 
   getOffers() {
