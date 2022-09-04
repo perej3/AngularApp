@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Router, CanActivate } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +15,7 @@ export class AuthService implements CanActivate {
 
     return this.httpClient.post<any>(this._loginUrl, user)
   }
-  logoutUser(){
+  logoutUser() {
     return this.httpClient.get<any>(this._logoutUrl)
   }
 
@@ -24,8 +23,8 @@ export class AuthService implements CanActivate {
     return this.httpClient.get<any>(this._offersUrl)
   }
 
-  getSubscription(offerId : string){
-    return this.httpClient.get<any>(this._offersUrl+'/'+offerId+'/subscriptions')
+  getSubscription(offerId: string) {
+    return this.httpClient.get<any>(this._offersUrl + '/' + offerId + '/subscriptions')
   }
 
   isloggedIn() {
@@ -42,7 +41,7 @@ export class AuthService implements CanActivate {
     }
   }
 
-  retrieveToken(){
+  retrieveToken() {
     return localStorage.getItem('Authorization')
   }
 

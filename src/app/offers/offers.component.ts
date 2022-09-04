@@ -18,7 +18,7 @@ export class OffersComponent implements OnInit {
   subscriptionList: any
   readyOffers: any = false
   readySubscriptions: any = true
-  
+
 
   ngOnInit(): void {
     this._auth.getOffers()
@@ -46,7 +46,7 @@ export class OffersComponent implements OnInit {
 
           console.log("Subscription response ", this.subscriptionList[0].id)
           this.readySubscriptions = true
-          
+
         }
       )
     console.log(offerId)
@@ -62,7 +62,7 @@ export class OffersComponent implements OnInit {
 
   ngAfterViewInit() {
     this.cdr.detectChanges();
-    
+
   }
 
 

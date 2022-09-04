@@ -13,8 +13,8 @@ export class InterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let authService = this.injector.get(AuthService)
     let request = req.clone({
-      setHeaders:{
-        Authorization: ''+ authService.retrieveToken()
+      setHeaders: {
+        Authorization: '' + authService.retrieveToken()
       }
     })
     return next.handle(request)

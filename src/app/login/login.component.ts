@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(private _auth: AuthService, private _router: Router) { }
 
   ngOnInit() {
-    if (localStorage.getItem('Authorization') != null){
-        this._router.navigate(['offers'])
+    if (localStorage.getItem('Authorization') != null) {
+      this._router.navigate(['offers'])
     }
   }
   loginUser() {
@@ -27,13 +27,13 @@ export class LoginComponent implements OnInit {
     this._auth.loginUser(this.loginUserCreds).subscribe(
       res => {
         console.log(res),
-        localStorage.setItem('Authorization', 'Bearer ' + res.authToken)
+          localStorage.setItem('Authorization', 'Bearer ' + res.authToken)
         this._router.navigate(['offers'])
       }
     )
-    
+
   }
-  
+
   get username() {
     return this.loginForm.get('username');
   }
