@@ -1,6 +1,11 @@
-body{
-    color:white;
- }
- button{
-     background-color: #df4297;
- }
+body {
+    color: white;
+}
+
+button {
+    background-color: #df4297;
+}
+
+#validationMsg {
+    
+}

@@ -10,3 +10,8 @@
 #offers {
     color: black;
 }
+
+.carousel-inner img { 
+    width:  30%; 
+    height: 90vh; 
+}

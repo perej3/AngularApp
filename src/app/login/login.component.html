@@ -6,12 +6,23 @@
         <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
 
             <input class="form-control" type="text" placeholder="Username" formControlName="username">
-            <span *ngIf="username && username.invalid && username.touched"> Must contain 4 characters</span>
             <br>
             <input class="form-control" type="password" placeholder="Password" formControlName="password">
-            <span *ngIf="password && password.invalid && password.touched"> Must contain 8 characters</span>
             <br>
-            <button class="btn form-control"  [disabled]=loginForm.invalid>Login</button>
+            <button class="btn form-control" [disabled]=loginForm.invalid>Login</button>
+
         </form>
+    </div>
+    <br>
+    <div id="validationMsg" class="d-flex justify-content-center">
+        <ul class="pe-3 pt-3 bg-danger" *ngIf="username && username.invalid && username.touched || password && password.invalid && password.touched">
+            <li *ngIf="username && username.invalid">
+                <p class="text-white"> Username must contain 4 characters</p>
+            </li>
+            <li *ngIf="password && password.invalid">
+                <p class="text-white"> Password must contain 8 characters</p>
+            </li>
+
+        </ul>
     </div>
 </div>

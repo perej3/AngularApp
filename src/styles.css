@@ -1,6 +1,5 @@
 html,body{
     font-family: 'Muli';
-    overflow:auto;
 }
 #container{
     background: url('assets/login.jpg') no-repeat center center fixed;

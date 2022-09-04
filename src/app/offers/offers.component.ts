@@ -16,7 +16,9 @@ export class OffersComponent implements OnInit {
   subscriptionOffers: any
   offersList: any
   subscriptionList: any
-  ready: any = false
+  readyOffers: any = false
+  readySubscriptions: any = true
+  
 
   ngOnInit(): void {
     this._auth.getOffers()
@@ -26,7 +28,7 @@ export class OffersComponent implements OnInit {
           this.offersList = this.requestOffers.offers
 
           console.log("Offer response: ", this.offersList[0].id)
-          this.ready = true
+          this.readyOffers = true
         }
       )
 
@@ -35,6 +37,7 @@ export class OffersComponent implements OnInit {
   }
 
   viewSubscriptions(offerId: string) {
+    this.readySubscriptions = false
     this._auth.getSubscription(offerId)
       .subscribe(
         res => {
@@ -42,7 +45,7 @@ export class OffersComponent implements OnInit {
           this.subscriptionList = this.subscriptionOffers.subscriptions
 
           console.log("Subscription response ", this.subscriptionList[0].id)
-          this.ready = true
+          this.readySubscriptions = true
           
         }
       )
